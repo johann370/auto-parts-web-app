@@ -7,27 +7,37 @@ body {
     overflow: hidden;
 }
 
+.flex-row {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
     background-color: rgb(11, 69, 87);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    height: 50px;
+    height: 8vh;
 }
 
 .header-title {
     color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .main {
     display: flex;
-    margin: 20px;
+    margin: 3px;
     margin-top: 25px;
 }
 
 .car-part {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.651);
     width: fit-content;
     margin: 0.5rem;
     padding: 10px;
@@ -40,7 +50,7 @@ body {
     border: 2px solid black;
     justify-content: center;
     overflow-y: scroll;
-    height: 100vh;
+    height: 85vh;
 }
 
 .part-image {
@@ -50,48 +60,71 @@ body {
     margin: auto;
 }
 
+.name-price-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .part-name {
     font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .part-price {
     font-size: 25px;
+    font-weight: bold;
 }
 
-.price-div {
+.part-manufacturer {
+    font-size: 16px;
+}
+
+.count-div {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
     padding: 5px;
     align-items: center;
-    width: 200px;
+    width: 100%;
 }
 
-.add-button {
-    padding: 5px;
+.quantity {
+    align-items: center;
+    gap: 5px;
 }
 
-.count-edit-div input {
-    width: 65px;
-    height: 26px;
+.quantity p {
+    font-size: 20px;
+}
+
+.count {
+    width: 25px;
+    height: 25px;
     text-align: center;
-    padding: 0;
 }
 
-.count-edit-div input::-webkit-outer-spin-button,
-.count-edit-div input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
 /* Firefox */
-.count-edit-div input[type=number] {
+input[type=number] {
     -moz-appearance: textfield;
 }
 
-.count-edit-div button {
-    width: 30px;
-    height: 30px;
+.add-button {
+    padding: 5px;
+    width: 120px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.delete-button {
+    height: 25px;
 }
 
 .cart {
@@ -100,13 +133,23 @@ body {
     width: 20%;
     max-height: 30rem;
     background-color: white;
-    padding: 7px;
-    padding-bottom: 20px;
+    box-sizing: border-box;
+    padding: 2px;
 }
 
 .cart-items {
     height: 90%;
     overflow: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 0 5px;
+    height: 50px;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.562);
 }
 
 .total-checkout-div {
@@ -115,15 +158,95 @@ body {
     position: sticky;
     bottom: 0;
     width: 100%;
+    border-top: 1px solid black;
 }
 
 #total {
     font-size: 20px;
-    width: 80%;
+    width: 50%;
     margin: 0;
     height: 3rem;
     background-color: white;
-    border: 2px solid black;
     text-align: center;
     line-height: 3rem;
+    box-sizing: border-box;
+}
+
+#checkout {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+
+/* Checkout Page */
+
+.two-column {
+    display: grid;
+    grid-template-columns: fit-content(50%) fit-content(50%);
+    column-gap: 10px;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: fit-content(33%) fit-content(33%) fit-content(33%);
+    column-gap: 10px;
+}
+
+.checkout-page {
+    margin: 10px;
+}
+
+.input-div input {
+    width: 200px;
+    height: 25px;
+}
+
+.address {
+    column-gap: 20px;
+}
+
+#shipping-address-div,
+#billing-address-div {
+    grid-column: span 3;
+}
+
+#card-number-div,
+#card-name-div {
+    grid-column: span 2;
+}
+
+#shipping-state,
+#billing-state {
+    width: 35px;
+}
+
+#shipping-zip-code,
+#billing-zip-code {
+    width: 100px;
+}
+
+#shipping-address,
+#billing-address {
+    width: 300px;
+}
+
+#card-info {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#card-holder-name {
+    width: 250px;
+}
+
+#card-number {
+    width: 250px;
+}
+
+#cvc {
+    width: 50px;
+}
+
+#expiration-date input {
+    width: 40px;
 }

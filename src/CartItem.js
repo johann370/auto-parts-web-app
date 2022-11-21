@@ -2,9 +2,9 @@ import React from 'react'
 
 const CartItem = ({ count, partName, price }) => {
     return (
-        <div>
+        <div className='cart-item'>
             <p>{count} x {partName}</p>
-            <p>${price * count}</p>
+            <p>${(price * count).toFixed(2)}</p>
         </div>
     )
 }

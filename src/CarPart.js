@@ -3,30 +3,38 @@ import CountEdit from './CountEdit';
 
 const CarPart = ({ id, partName, price, manufacturer, addToCart, removeFromCart }) => {
     const [count, setCount] = useState(0);
-    const [displayAddButton, setDisplayAddButton] = useState(true)
-    const [displayCountEdit, setDisplayCountEdit] = useState(false)
 
-    useEffect(() => {
-        if (count <= 0) {
-            setDisplayAddButton(true);
-            setDisplayCountEdit(false);
-            removeFromCart(id)
-        } else if (count > 0) {
-            setDisplayAddButton(false);
-            setDisplayCountEdit(true);
-            addToCart(id, partName, price, count);
+    const [inputValue, setInputValue] = useState(0);
+
+    const handleSubmit = (e) => {
+        if (e.key === 'Enter') {
+            setCount(inputValue);
         }
-    }, [count]);
+    }
+
+    const handleAdd = () => {
+        if (inputValue <= 0) {
+            return;
+        }
+
+        addToCart(id, partName, price, inputValue);
+    };
 
     return (
         <div className='car-part'>
             <div className='part-image'></div>
-            <p className='part-name' >{partName}</p>
+            <div className='name-price-div'>
+                <p className='part-name' >{partName}</p>
+                <p className='part-price' >${price.toFixed(2)}</p>
+            </div>
             <p className='part-manufacturer' >Manufacturer: {manufacturer}</p>
-            <div className='price-div'>
-                <p className='part-price' >${price}</p>
-                {displayAddButton && <button className='add-button' onClick={() => setCount(1)}>Add to Cart</button>}
-                {displayCountEdit && <CountEdit count={count} setCount={setCount} />}
+            <div className='count-div'>
+                <div className='flex-row quantity'>
+                    <p>Qty:</p>
+                    <input className='count' type='number' value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleSubmit}  ></input>
+                </div>
+                <button className='add-button' onClick={() => handleAdd()}>Add to Cart</button>
+                {/* <button className='delete-button'>Delete</button> */}
             </div>
         </div>
     )

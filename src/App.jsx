@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import CarParts from './CarParts';
 import Cart from './Cart';
+import CheckoutPage from './CheckoutPage';
 import Header from './Header';
+import ShopPage from './ShopPage';
 
 function App() {
 
@@ -28,12 +30,9 @@ function App() {
 
   return (
     <div>
-      <Header displayCart={displayCart} setDisplayCart={setDisplayCart} />
-      {displayCart && <Cart cartItems={cartItems} />}
-      <div className='main'>
-        <CarParts addToCart={addToCart} removeFromCart={removeFromCart} />
-        <Cart cartItems={cartItems} />
-      </div>
+      <Header />
+      <CheckoutPage />
+      {/* <ShopPage addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems} /> */}
     </div>
   );
 }

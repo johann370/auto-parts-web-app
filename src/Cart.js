@@ -19,8 +19,8 @@ const Cart = ({ cartItems }) => {
                 {Object.keys(cartItems).length > 0 ? <div>{renderItems}</div> : <p>Your Cart Is Empty</p>}
             </div>
             <div className='total-checkout-div'>
-                <p id='total'>Total: $ {total}</p>
-                <button>Checkout</button>
+                <button id='checkout'>Checkout</button>
+                <p id='total'>Total: ${total.toFixed(2)}</p>
             </div>
         </div>
     )
