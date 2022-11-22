@@ -1,8 +1,15 @@
 import React from 'react'
+import CartPageItems from './CartPageItems'
 
-const CartPage = () => {
+const CartPage = ({ cartItems }) => {
     return (
-        <div>CartPage</div>
+        <div id='cart-page'>
+            <CartPageItems cartItems={cartItems} />
+            <div id='cart-page-checkout' className='flex-row'>
+                <p>Subtotal: </p>
+                <button>Checkout</button>
+            </div>
+        </div>
     )
 }
 
