@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import CartItem from './CartItem'
+import { Link } from 'react-router-dom';
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, displayCheckout }) => {
     const [renderItems, setRenderItems] = useState([]);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
         if (!cartItems || Object.keys(cartItems).length === 0) {
-            return
+            setTotal(0);
+            return;
         }
         setRenderItems(Object.values(cartItems).map((cartItem) => <CartItem key={cartItem.partName} count={cartItem.count} partName={cartItem.partName} price={cartItem.price} />));
         setTotal(Object.values(cartItems).reduce((accumulator, currentValue) => accumulator + (currentValue.count * currentValue.price), 0,));
@@ -19,7 +21,7 @@ const Cart = ({ cartItems }) => {
                 {Object.keys(cartItems).length > 0 ? <div>{renderItems}</div> : <p>Your Cart Is Empty</p>}
             </div>
             <div className='total-checkout-div'>
-                <button id='checkout'>Checkout</button>
+                {displayCheckout && <Link id='checkout' to="/checkout">Checkout</Link>}
                 <p id='total'>Total: ${total.toFixed(2)}</p>
             </div>
         </div>

@@ -12,6 +12,8 @@
     flex-direction: column;
 }
 
+/* Header */
+
 .header {
     background-color: rgb(11, 69, 87);
     display: flex;
@@ -19,6 +21,7 @@
     align-items: center;
     padding: 10px;
     height: 8vh;
+    margin-bottom: 10px;
 }
 
 .header-title {
@@ -30,6 +33,20 @@
     display: flex;
     margin: 3px;
     margin-top: 25px;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+#shop-link {
+    font-size: 40px;
+}
+
+#cart-icon {
+    font-size: 40px;
+    margin-right: 10px;
 }
 
 /* Shop Page */
@@ -157,6 +174,7 @@ input[type=number] {
     bottom: 0;
     width: 100%;
     border-top: 1px solid black;
+    align-items: center;
 }
 
 #total {
@@ -168,11 +186,21 @@ input[type=number] {
     text-align: center;
     line-height: 3rem;
     box-sizing: border-box;
+    border-left: 1px solid black;
 }
 
 #checkout {
     width: 50%;
+    height: 90%;
+    text-align: center;
     box-sizing: border-box;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    line-height: 200%;
+    border-radius: 10px;
+    margin: 0 5px;
+    font-size: 20px;
 }
 
 
@@ -259,11 +287,45 @@ input[type=number] {
     width: 40px;
 }
 
+#place-order {
+    margin-top: 15px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
 /* Cart Page */
 
 #cart-page {
     width: 60%;
     margin: auto;
+    border: 2px solid black;
+    text-align: center;
+    padding: 5px;
+    position: relative
+}
+
+#cart-page-checkout {
+    justify-content: center;
+    margin-top: 30px;
+    bottom: 0;
+    align-items: center;
+    gap: 10px;
+}
+
+#cart-checkout {
+    width: 150px;
+    height: 35px;
+    border: 1px solid black;
+    line-height: 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#cart-page-subtotal {
+    font-size: 30px;
 }
 
 .cart-page-item {
@@ -283,9 +345,11 @@ input[type=number] {
     font-size: 30px;
     font-weight: bold;
     margin-top: 5px;
+    text-align: left;
 }
 
 .cart-page-manufacturer {
+    text-align: left;
     margin-left: 15px;
 }
 

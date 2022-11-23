@@ -1,11 +1,14 @@
 import React from 'react'
-import CartButton from './CartButton'
+import { Link } from 'react-router-dom'
+import { FaShoppingCart } from "react-icons/fa";
 
-const Header = ({ displayCart, setDisplayCart }) => {
+
+const Header = ({ }) => {
     return (
         <div className='header'>
             <h1 className='header-title'>Auto Parts Distribution</h1>
-            <button>Cart</button>
+            <Link to="/shop" id='shop-link'>SHOP</Link>
+            <Link to="/cart" id='cart-icon'><FaShoppingCart /></Link>
         </div>
     )
 }

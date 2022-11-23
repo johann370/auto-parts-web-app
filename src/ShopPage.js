@@ -6,7 +6,7 @@ const ShopPage = ({ addToCart, removeFromCart, cartItems }) => {
     return (
         <div className='main'>
             <CarParts addToCart={addToCart} removeFromCart={removeFromCart} />
-            <Cart cartItems={cartItems} />
+            <Cart cartItems={cartItems} displayCheckout={true} />
         </div>
     )
 }

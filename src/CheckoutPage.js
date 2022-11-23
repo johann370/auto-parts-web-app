@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import Cart from './Cart';
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ cartItems }) => {
     const [displayBilling, setDisplayBilling] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -129,7 +130,8 @@ const CheckoutPage = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => processOrder()}>Check Out</button>
+            <Cart cartItems={cartItems} displayCheckout={false} />
+            <button id='place-order' onClick={() => processOrder()}>Place Order</button>
         </div>
     )
 }

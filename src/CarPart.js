@@ -4,20 +4,18 @@ import CountEdit from './CountEdit';
 const CarPart = ({ id, partName, price, manufacturer, addToCart, removeFromCart }) => {
     const [count, setCount] = useState(0);
 
-    const [inputValue, setInputValue] = useState(0);
-
     const handleSubmit = (e) => {
         if (e.key === 'Enter') {
-            setCount(inputValue);
+            handleAdd();
         }
     }
 
     const handleAdd = () => {
-        if (inputValue <= 0) {
+        if (count <= 0) {
             return;
         }
 
-        addToCart(id, partName, price, inputValue);
+        addToCart(id, partName, price, count, manufacturer);
     };
 
     return (
@@ -31,7 +29,7 @@ const CarPart = ({ id, partName, price, manufacturer, addToCart, removeFromCart 
             <div className='count-div'>
                 <div className='flex-row quantity'>
                     <p>Qty:</p>
-                    <input className='count' type='number' value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleSubmit}  ></input>
+                    <input className='count' type='number' value={count} onChange={(e) => setCount(parseInt(e.target.value))} onKeyDown={handleSubmit}  ></input>
                 </div>
                 <button className='add-button' onClick={() => handleAdd()}>Add to Cart</button>
                 {/* <button className='delete-button'>Delete</button> */}
