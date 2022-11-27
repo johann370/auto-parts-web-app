@@ -2,18 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import CartPage from './CartPage';
 import CheckoutPage from './CheckoutPage';
+import PurchasePage from './PurchasePage';
 import Header from './Header';
 import ShopPage from './ShopPage';
 import Layout from './Layout';
-
-
-
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, } from 'react-router-dom';
 
 function App() {
 
@@ -54,6 +47,7 @@ function App() {
             <Route path='shop' element={<ShopPage addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems} />} />
             <Route path='cart' element={<CartPage cartItems={cartItems} setCount={setCount} removeFromCart={removeFromCart} />} />
             <Route path='checkout' element={<CheckoutPage cartItems={cartItems} />} />
+            <Route path='purchased' element={<PurchasePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

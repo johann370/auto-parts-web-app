@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { redirect, useNavigate } from 'react-router-dom';
 import Cart from './Cart';
 
 const CheckoutPage = ({ cartItems }) => {
@@ -21,6 +22,8 @@ const CheckoutPage = ({ cartItems }) => {
     const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     const years = ['22', '23', '24', '25', '26', '27', '28', '29', '30']
 
+    const navigate = useNavigate();
+
     const verifyInfo = () => {
         if (!firstName || !lastName || !shippingAddress ||
             !shippingState || !shippingZip || !cardName ||
@@ -37,11 +40,36 @@ const CheckoutPage = ({ cartItems }) => {
 
     const processOrder = () => {
         if (!verifyInfo()) {
-            console.log('did not verify')
+            console.log('did not verify');
             return;
         }
 
-        console.log('verified')
+        if (Object.values(cartItems).length === 0) {
+            console.log('Cart is empty');
+            return;
+        }
+
+        let carParts = []
+        Object.values(cartItems).map((item) => carParts.push({ id: item.id, count: item.count }))
+
+        const total = Object.values(cartItems).reduce((accumulator, currentValue) => accumulator + (currentValue.count * currentValue.price), 0,)
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                'first_name': firstName,
+                'last_name': lastName,
+                'address': `${shippingAddress}, ${shippingState}, ${shippingZip}`,
+                'car_parts': carParts,
+                'card_number': cardNumber,
+                'total': total
+            })
+        };
+
+        fetch('http://localhost:5000/order', requestOptions)
+
+        navigate('/purchased');
     };
 
 
