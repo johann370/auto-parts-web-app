@@ -117,7 +117,7 @@ const CarParts = ({ addToCart, removeFromCart }) => {
     // ]
 
     useEffect(() => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://jmdragon370.pythonanywhere.com/parts')
             .then(response => response.json())
             .then(data => {
                 setCarParts(data);

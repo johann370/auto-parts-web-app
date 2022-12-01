@@ -67,7 +67,7 @@ const CheckoutPage = ({ cartItems }) => {
             })
         };
 
-        fetch('http://localhost:5000/order', requestOptions)
+        fetch('https://jmdragon370.pythonanywhere.com/order', requestOptions)
 
         navigate('/purchased');
     };
