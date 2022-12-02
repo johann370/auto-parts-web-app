@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import CountEdit from './CountEdit';
 
-const CarPart = ({ id, partName, price, manufacturer, addToCart, removeFromCart }) => {
+/*
+Component for displaying individual car parts in the shap page
+
+param id: The part id
+param partName: The part name
+param price: The part price
+param manufacturer: The part manufacturer
+param addToCart: Function to add this car part to the cart
+*/
+const CarPart = ({ id, partName, price, manufacturer, addToCart }) => {
     const [count, setCount] = useState(0);
 
     const handleSubmit = (e) => {

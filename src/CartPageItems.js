@@ -1,6 +1,13 @@
 import React from 'react'
 import CartPageItem from './CartPageItem'
 
+/*
+Container component for items in the cart page
+
+param cartItems: The items to display in the cart
+param setCount: Function to update the count of a specific part
+param removeFromCart: Function to remove a specific part from a cart
+*/
 const CartPageItems = ({ cartItems, setCount, removeFromCart }) => {
     return (
         <div>

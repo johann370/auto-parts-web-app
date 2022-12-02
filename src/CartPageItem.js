@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from 'react'
 
+/*
+Component to display individual cart items in the cart page
+
+param id: The part id
+param partName: The part name
+param price: The part price
+param count: The part count
+param manufacturer: The part manufacturer
+param setCount: Function to change the count of a specific part
+param removeFromCart: Function to remove a specific part from the cart
+*/
 const CartPageItem = ({ id, partName, price, count, manufacturer, setCount, removeFromCart }) => {
     const [input, setInput] = useState(count);
 
+    /*
+    Function to change the count of a part, or remove the part 
+    when the count 0 or below
+    */
     useEffect(() => {
         if (input <= 0) {
             removeFromCart(id);

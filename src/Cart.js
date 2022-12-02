@@ -2,10 +2,23 @@ import React, { useEffect, useState } from 'react'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom';
 
+/*
+Component for displaying the cart
+
+param cartItems: All the cart items to display
+param displayCheckout: Boolean to display checkout button
+*/
+
 const Cart = ({ cartItems, displayCheckout }) => {
     const [renderItems, setRenderItems] = useState([]);
     const [total, setTotal] = useState(0);
 
+
+    /*
+    Function to update total and set which cart items to display
+
+    (Requirement 2.4)
+    */
     useEffect(() => {
         if (!cartItems || Object.keys(cartItems).length === 0) {
             setTotal(0);

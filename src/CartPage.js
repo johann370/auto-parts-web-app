@@ -2,9 +2,21 @@ import React, { useState, useEffect } from 'react'
 import CartPageItems from './CartPageItems'
 import { Link } from 'react-router-dom';
 
+/*
+Component for displaying the cart page
+
+param cartItems: The items in the cart to display
+param setCount: Function to change the count of a specific part
+param removeFromCart: Function to remove a specific part from the cart
+*/
 const CartPage = ({ cartItems, setCount, removeFromCart }) => {
     const [total, setTotal] = useState(0);
 
+    /*
+    Function to update the total in the cart
+    
+    (Requirement 2.4)
+    */
     useEffect(() => {
         if (!cartItems || Object.keys(cartItems).length === 0) {
             setTotal(0);

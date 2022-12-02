@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
 
-
+/*
+Component for displaying the page header
+*/
 const Header = ({ }) => {
     return (
         <div className='header'>

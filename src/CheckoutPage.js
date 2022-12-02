@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { redirect, useNavigate } from 'react-router-dom';
 import Cart from './Cart';
 
+/*
+Component for displaying the checkout page
+
+param cartItems: The cart items to display in the small cart
+*/
 const CheckoutPage = ({ cartItems }) => {
     const [displayBilling, setDisplayBilling] = useState(false);
     const [firstName, setFirstName] = useState('');
@@ -27,6 +32,11 @@ const CheckoutPage = ({ cartItems }) => {
     const [displayError, setDisplayError] = useState(false);
     const [error, setError] = useState('');
 
+    /*
+    Function to check if ther user left any fields empty
+
+    (Requirement 2.13)
+    */
     const checkEmptyFields = () => {
         if (!firstName || !lastName || !shippingAddress ||
             !shippingState || !shippingZip || !cardName ||
@@ -41,13 +51,19 @@ const CheckoutPage = ({ cartItems }) => {
         return true;
     };
 
+    /*
+    Function to save the order to the database and
+    redirect user to purchased page
+    
+    (Requirement 2.2, 2.7)
+    */
     const processOrder = () => {
         if (!checkEmptyFields()) {
             setError('Please enter all information');
             setDisplayError(true);
             return;
         }
-
+        // (Requirement 2.14)
         if (Object.values(cartItems).length === 0) {
             setError('Cart is empty');
             setDisplayError(true);
