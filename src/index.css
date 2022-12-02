@@ -295,6 +295,17 @@ input[type=number] {
     border-radius: 10px;
 }
 
+#error {
+    color: rgb(194, 5, 5);
+    font-size: 25px;
+    border: 2px solid red;
+    width: 20%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
 /* Cart Page */
 
 #cart-page {

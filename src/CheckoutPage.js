@@ -24,7 +24,10 @@ const CheckoutPage = ({ cartItems }) => {
 
     const navigate = useNavigate();
 
-    const verifyInfo = () => {
+    const [displayError, setDisplayError] = useState(false);
+    const [error, setError] = useState('');
+
+    const checkEmptyFields = () => {
         if (!firstName || !lastName || !shippingAddress ||
             !shippingState || !shippingZip || !cardName ||
             !cardNumber || !cvc || !expMonth || !expYear) {
@@ -39,13 +42,15 @@ const CheckoutPage = ({ cartItems }) => {
     };
 
     const processOrder = () => {
-        if (!verifyInfo()) {
-            console.log('did not verify');
+        if (!checkEmptyFields()) {
+            setError('Please enter all information');
+            setDisplayError(true);
             return;
         }
 
         if (Object.values(cartItems).length === 0) {
-            console.log('Cart is empty');
+            setError('Cart is empty');
+            setDisplayError(true);
             return;
         }
 
@@ -158,6 +163,7 @@ const CheckoutPage = ({ cartItems }) => {
                     </div>
                 </div>
             </div>
+            {displayError && <p id='error'>{error}</p>}
             <Cart cartItems={cartItems} displayCheckout={false} />
             <button id='place-order' onClick={() => processOrder()}>Place Order</button>
         </div>
