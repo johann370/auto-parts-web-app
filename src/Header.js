@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 /*
 Component for displaying the page header
 */
-const Header = ({ }) => {
+const Header = () => {
     return (
         <div className='header'>
             <h1 className='header-title'>Auto Parts Distribution</h1>

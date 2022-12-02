@@ -3,15 +3,13 @@ import './App.css';
 import CartPage from './CartPage';
 import CheckoutPage from './CheckoutPage';
 import PurchasePage from './PurchasePage';
-import Header from './Header';
 import ShopPage from './ShopPage';
 import Layout from './Layout';
-import { BrowserRouter, Routes, Route, Link, } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 
 function App() {
 
   const [cartItems, setCartItems] = useState({});
-  const [displayCart, setDisplayCart] = useState(false);
 
   /*
   Function to add a part to the cart
@@ -50,7 +48,7 @@ function App() {
 
   /*
   Function to update count of a part
-  
+
   param id: The part id to update
   param newCount: The new count of the part
   (Requirement 2.12)

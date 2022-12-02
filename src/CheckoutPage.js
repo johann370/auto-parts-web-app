@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Cart from './Cart';
 
 /*
@@ -54,7 +54,7 @@ const CheckoutPage = ({ cartItems }) => {
     /*
     Function to save the order to the database and
     redirect user to purchased page
-    
+
     (Requirement 2.2, 2.7)
     */
     const processOrder = () => {

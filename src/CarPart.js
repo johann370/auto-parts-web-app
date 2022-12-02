@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 /*
 Component for displaying individual car parts in the shap page
