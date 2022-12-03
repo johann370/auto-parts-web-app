@@ -31,7 +31,7 @@ const CartPageItem = ({ id, partName, price, count, manufacturer, setCount, remo
         <div className='cart-page-item flex-row'>
             <div className='small-image'></div>
             <div>
-                <p className='cart-page-name-price'>{partName} - ${price.toFixed(2) * count}</p>
+                <p className='cart-page-name-price'>{partName} - ${(price * count).toFixed(2)}</p>
                 <p className='cart-page-manufacturer'>Manufacturer: {manufacturer}</p>
                 <div className='cart-page-count flex-row'>
                     <p>Qty:</p>

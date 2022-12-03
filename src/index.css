@@ -83,7 +83,17 @@
 
 .part-name {
     font-size: 25px;
+    width: 150px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.car-part:hover .part-name {
+    text-overflow: clip;
+    overflow: visible;
+    white-space: normal;
 }
 
 .part-price {
@@ -167,6 +177,12 @@ input[type=number] {
     border-bottom: 2px dashed rgba(0, 0, 0, 0.562);
 }
 
+.cart-item p:first-child {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .total-checkout-div {
     height: 10%;
     display: flex;
@@ -178,7 +194,8 @@ input[type=number] {
 }
 
 #total {
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: bold;
     width: 50%;
     margin: 0;
     height: 3rem;
